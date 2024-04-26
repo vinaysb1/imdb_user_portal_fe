@@ -1,13 +1,19 @@
-import React from 'react'
-import Movies from './componenets/Movies'
-
-
+// App.js
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Movies from './components/Movies';
+import './App.css';
 const App = () => {
   return (
-    <div>
-      <Movies/>
-    </div>
-  )
-}
+    <Router>
+      <div className='flex'>
+        <Routes>
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/" element={<Navigate to="/movies" />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+};
 
-export default App
+export default App;
